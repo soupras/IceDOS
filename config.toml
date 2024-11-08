@@ -1,13 +1,13 @@
 [icedos.applications]
 aagl = false
-android-tools = true
+android-tools = false
 brave = true
 celluloid = true
 clamav = false
 php = false
 pitivi = false
 rust = false
-solaar = true
+solaar = false
 sunshine = true
 suyu = false
 yazi = false
@@ -40,7 +40,7 @@ zoomLevel = 0
 
 [icedos.applications.mangohud]
 enable = true
-maxFpsLimit = 144 # Use 0 for unlimited
+maxFpsLimit = 60 # Use 0 for unlimited
 
 [icedos.applications.kitty]
 enable = true
@@ -72,9 +72,9 @@ beta = true
 downloadsWorkaround = true
 
 [icedos.applications.steam.session]
-enable = true
+enable = false
 useValveKernel = false
-user = "icedborn"
+user = "soupras"
 
 [icedos.applications.steam.session.autoStart]
 enable = false
@@ -101,17 +101,11 @@ mode = "system" # Options: 'system', 'dark', 'light'
 enable = true
 default = true
 overrides = true
-privacy = true
+privacy = false
 
 [icedos.applications.zen-browser.pwas]
 enable = true
-sites = [
-  "https://app.tuta.com",
-  "https://develop.element.io",
-  "https://discord.com/app",
-  "https://dtekteam.slack.com/",
-  "https://web.skype.com/",
-]
+sites = ["https://develop.element.io", "https://discord.com/app"]
 
 [icedos.bootloader]
 animation = false # Hides linux kernel logs and displays a loading interface based on OEM
@@ -129,14 +123,14 @@ accentColor = "#7E57C2" # With gnome enabled this is getting overriden by gnome'
 
 [icedos.desktop.autologin]
 enable = true
-user = "icedborn"
+user = "soupras"
 
 [icedos.desktop.gdm]
 enable = true
 autoSuspend = true
 
 [icedos.desktop.gnome]
-enable = false
+enable = true
 accentColor = "purple" # Options: 'blue', 'teal', 'green', 'yellow', 'orange', 'red', 'pink', 'purple', 'slate'
 hotCorners = false
 powerButtonAction = "interactive"
@@ -159,7 +153,7 @@ dynamicWorkspaces = true
 maxWorkspaces = 1 # Determines the maximum number of workspaces when dynamic workspaces are disabled
 
 [icedos.desktop.hyprland]
-enable = true
+enable = false
 backlight = "amdgpu_bl0" # Find backlight unit using brightnessctl
 gatewayVpn = true
 hyprexpo = true # Activity viewer
@@ -178,7 +172,7 @@ networkUsageThreshold = 1_000_000 # Network usage to inhibit lock in bytes/s
 
 [icedos.hardware]
 bluetooth = true
-mounts = true # Set to false if hardware/mounts.nix is not correctly configured
+mounts = false # Set to false if hardware/mounts.nix is not correctly configured
 
 [icedos.hardware.btrfs.compression]
 enable = true
@@ -192,11 +186,11 @@ intel = false
 enable = true
 
 [icedos.hardware.cpus.amd.undervolt]
-enable = true
+enable = false
 value = "-p 0 -v 3C -f A0" # Pstate 0, 1.175 voltage, 4000 clock speed
 
 [icedos.hardware.devices]
-laptop = false
+laptop = true
 steamdeck = false
 
 [icedos.hardware.drivers]
@@ -223,39 +217,15 @@ enable = true
 value = 242
 
 [[icedos.hardware.monitors]]
-name = "DP-1"
-resolution = "1920x1080"
-refreshRate = 144
+name = "eDP-1"
+resolution = "1600x900"
+refreshRate = 60
 position = "0x0"
 scaling = 1
 rotation = 0
 
-[[icedos.hardware.monitors]]
-name = "DP-2"
-resolution = "1360x768"
-refreshRate = 60
-position = "-1360x0"
-scaling = 1
-rotation = 0
-
-[[icedos.hardware.monitors]]
-name = "DP-3"
-resolution = "1280x1024"
-refreshRate = 75
-position = "1920x0"
-scaling = 1
-rotation = 0
-
-[[icedos.hardware.monitors]]
-name = "HDMI-A-1"
-resolution = "3840x2160"
-refreshRate = 60
-position = "-5200x0"
-scaling = 1
-rotation = 0
-
 [icedos.hardware.networking]
-hostname = "desktop"
+hostname = "laptop-soupras"
 hosts = false
 ipv6 = false
 
@@ -282,25 +252,25 @@ days = 0 # Number of days before a generation can be deleted
 generations = 10 # Number of generations that will always be kept
 interval = "7d" # Format(https://www.freedesktop.org/software/systemd/man/latest/systemd.time.html)
 
-[icedos.system.users.icedborn]
-description = "IceDBorn"
+[icedos.system.users.soupras]
+description = "Soupras"
 type = "main" # Options: 'main', 'work', 'server'
 
-[icedos.system.users.icedborn.applications.codium]
+[icedos.system.users.soupras.applications.codium]
 autoSave = "off" # Options: 'off', 'afterDelay', 'onFocusChange', 'onWindowChange'
 formatOnSave = true
 formatOnPaste = true
 
-[icedos.system.users.icedborn.applications.git]
-username = "IceDBorn"
-email = "git.outsider841@simplelogin.fr"
+[icedos.system.users.soupras.applications.git]
+username = "soupras"
+email = "nikolaospantazhs1022@gmail.com"
 
-[icedos.system.users.icedborn.desktop.gnome.pinnedApps.arcmenu]
+[icedos.system.users.soupras.desktop.gnome.pinnedApps.arcmenu]
 enable = false
 list = ["codiumIDE.desktop", "codium.desktop", "mullvad-vpn.desktop"]
 
 # Set pinned apps for gnome shell (will be used by dash-to-panel if enabled)
-[icedos.system.users.icedborn.desktop.gnome.pinnedApps.shell]
+[icedos.system.users.soupras.desktop.gnome.pinnedApps.shell]
 enable = false
 list = [
   "steam.desktop",
@@ -309,23 +279,23 @@ list = [
   "librewolf.desktop",
 ]
 
-[icedos.system.users.icedborn.desktop.idle.lock]
+[icedos.system.users.soupras.desktop.idle.lock]
 enable = true
 seconds = 180
 
-[icedos.system.users.icedborn.desktop.idle.disableMonitors]
+[icedos.system.users.soupras.desktop.idle.disableMonitors]
 enable = true
 seconds = 300
 
-[icedos.system.users.icedborn.desktop.idle.suspend]
+[icedos.system.users.soupras.desktop.idle.suspend]
 enable = true
 seconds = 900
 
 [icedos.system.virtualisation]
-libvirtd = true # A daemon that manages virtual machines
-waydroid = true # Android container
+libvirtd = false # A daemon that manages virtual machines
+waydroid = false # Android container
 
 [icedos.system.virtualisation.containerManager]
-enable = true
+enable = false
 usePodman = true
 requireSudoForDocker = true # CAUTION: Disabling this gives every user root priviledges!
